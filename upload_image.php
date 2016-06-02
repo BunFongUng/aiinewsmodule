@@ -25,13 +25,9 @@ if ((($mime == "image/gif")
     $name = sha1(microtime()) . "." . $extension;
 
     // Save file in the uploads folder.
-    if(file_exists($folder_upload.$name)) {
-        //unlink($folder_upload.$name);
-    } else {
-        move_uploaded_file($_FILES["file"]["tmp_name"], $folder_upload.$name);
-        // Generate response.
-        $response = new StdClass;
-        $response->link = "http://172.17.3.92:8080/www.aiisystem.edu.kh/aiisystem_dashboard/uploads/" . $name;
-        echo stripslashes(json_encode($response));
-    }
+    move_uploaded_file($_FILES["file"]["tmp_name"], $folder_upload.$name);
+    // Generate response.
+    $response = new StdClass;
+    $response->link = "http://172.17.3.92:8080/www.aiisystem.edu.kh/aiisystem_dashboard/uploads/" . $name;
+    echo stripslashes(json_encode($response));
 }

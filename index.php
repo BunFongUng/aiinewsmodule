@@ -36,7 +36,7 @@ $stmt->execute();
         <div class="container-fluid padding-25 sm-padding-10">
             <!-- start row-->
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                     <!-- START CONTAINER FLUID -->
                     <div class="container-fluid container-fixed-lg bg-white">
                         <!-- START PANEL -->
@@ -61,7 +61,7 @@ $stmt->execute();
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>News Title</label>
-                                                    <input type="text" name="title" id="title" class="form-control" value="<?php echo $title_display = (isset($title)) ? $title_display = $title : ""?>">
+                                                    <input required="required" type="text" name="title" id="title" class="form-control" value="<?php echo $title_display = (isset($title)) ? $title_display = $title : ""?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@ $stmt->execute();
                                                 <div class="form-group">
                                                     <label>Post Date</label>
                                                     <div id="datepicker-component" class="input-group date">
-                                                        <input type="text" class="form-control" name="post_date" placeholder="Post Date" value="<?php echo $display_date = (isset($post_date)) ? $display_date = $post_date : ""?>"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                        <input required="required" type="text" class="form-control" name="post_date" placeholder="Post Date" value="<?php echo $display_date = (isset($post_date)) ? $display_date = $post_date : ""?>"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -92,7 +92,7 @@ $stmt->execute();
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label class="label-control">Short Description</label>
-                                                    <textarea name="desc" id="edit"><?php echo $display_desc = (isset($des)) ? $display_desc = $des : ""?></textarea>
+                                                    <textarea required="required" name="desc" id="edit"><?php echo $display_desc = (isset($des)) ? $display_desc = $des : ""?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -101,7 +101,7 @@ $stmt->execute();
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Content</label>
-                                                    <textarea name="contents" id="edit2"><?php echo $display_content = (isset($content)) ? $display_content = $content : ""?></textarea>
+                                                    <textarea required="required" name="contents" id="edit2"><?php echo $display_content = (isset($content)) ? $display_content = $content : ""?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,7 +159,7 @@ $stmt->execute();
         <div class="container-fluid padding-25 sm-padding-10">
             <!-- start row-->
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                     <!-- START CONTAINER FLUID -->
                     <div class="container-fluid container-fixed-lg bg-white">
                         <!-- START PANEL -->
@@ -178,7 +178,7 @@ $stmt->execute();
                             <div class="panel-body">
                                 <?php if($stmt3->rowCount() > 0):?>
                                     <?php $update_result_found = $stmt3->fetch(PDO::FETCH_ASSOC); extract($update_result_found);?>
-                                    <form id="form-personal" role="form" autocomplete="off" method="post" action="update.php" enctype="multipart/form-data">
+                                    <form id="form-personal" role="form" autocomplete="off" method="post" action="delete.php" enctype="multipart/form-data">
                                         <input type="hidden" name="delete_id" value="<?= $delete_id?>">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -222,7 +222,7 @@ $stmt->execute();
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Content</label>
-                                                    <textarea readonly="readonly" name="contents" id="edit"><?php echo $display_content = (isset($content)) ? $display_content = $content : ""?></textarea>
+                                                    <textarea readonly="readonly" name="contents" id="edit2"><?php echo $display_content = (isset($content)) ? $display_content = $content : ""?></textarea>
                                                 </div>
                                             </div>
                                         </div>
